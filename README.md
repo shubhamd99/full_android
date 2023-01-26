@@ -2,9 +2,38 @@
 
 ![img_alt](https://i.imgur.com/ai9Kpdi.png)
 
+## Declarative vs Imperative UI in Android
+
+Every application has a UI framework behind it. These frameworks play a huge part in how the applications are created and their performance as well. They also have different ways of operation but can be summarized into two: declarative and imperative.
+
+* Imperative UI This is the most common paradigm. It involves having a separate prototype/model of the application’s UI. This design focuses on the how rather than the what. A good example is XML layouts in Android. We design the widgets and components which are then rendered for the user to see and interact with. Too complicated - a lot of moving parts. UI is coupled with the logic and vice versa. For example: to render a list witha a few items, you'll need to Create Recycler View which needs an adapter and each list item needs a view holder.
+
+* Declarative UI This pattern is an emerging trend that allows the developers to design the user interface based on the data received. This on the other hand focuses on the what. This design paradigm makes use of one programming language to create an entire application.
+
+* Before Jetpack compose, themes were set in the manifest files. The various style attributes were declared in the resources folder in XML files too. You also had Material design classes for the themes.
+
+* In imperative UI, state management was not as easy as in declarative UI. Since the user interface was created using a tree of widgets, it became more error prone as the tree grew. To reflect a change in the data, you had to go through the widget tree to find the specific widget to update.
+
+## Pros of Declarative UI
+
+* No more manually updating each widget (setters and getters)
+* No more XML UIs
+* Data is passed down from the main function
+* Events are sent up
+* Recomposition - is the process of calling your composable function again when inputs change
+
+## Cons of Imperative UI
+
+* Traverse widget tree (expensive)
+* Increase errors
+* Changing the internal state of the widget manually
+* Update conflicts happen
+
 ## Jetpack
 Modern Android Development with Declarative UI Approach.
 Jetpack is a suite of libraries to help developers follow best practices, reduce boilerplate code, and write code that works consistently across Android versions and devices so that developers can focus on the code they care about.
+
+Jetpack compose also comes with a pre-configured Material design theme. You can customize this theme to meet your own demands in an easier way. It provides properties like shapes, typography and colors in the MaterialTheme composable.
 
 ## Kotlin functions
 Kotlin functions are first-class, which means they can be stored in variables and data structures, and can be passed as arguments to and returned from other higher-order functions. You can perform any operations on functions that are possible for other non-function values.
