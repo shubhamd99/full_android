@@ -71,3 +71,9 @@ A LazyColumn is a vertically scrolling list that only composes and lays out the 
 
 ## remember 
 Composable functions can use the remember API to store an object in memory. A value computed by remember is stored in the Composition during initial composition, and the stored value is returned during recomposition. remember can be used to store both mutable and immutable objects.
+
+## State Hoisting
+You should hoist UI state to the lowest common ancestor between all the composables that read and write it. You should keep state closest to where it is consumed. From the state owner, expose to consumers immutable state and events to modify the state.
+The lowest common ancestor can also be outside of the Composition. For example, when hoisting state in a ViewModel because business logic is involved.
+
+More Details - https://developer.android.com/jetpack/compose/state-hoisting
