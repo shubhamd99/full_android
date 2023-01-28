@@ -77,3 +77,34 @@ You should hoist UI state to the lowest common ancestor between all the composab
 The lowest common ancestor can also be outside of the Composition. For example, when hoisting state in a ViewModel because business logic is involved.
 
 More Details - https://developer.android.com/jetpack/compose/state-hoisting
+
+## Scaffold
+
+A Scaffold is a layout which implements the basic material design layout structure. You can add things like a TopBar, BottomBar, FAB or a Drawer.
+
+There are a lot of apps that contain TopAppBar, Drawer, Floating Action Button, BottomAppBar (in the form of bottom navigation), Snackbar. While you can individually set up all of these in an app but takes a lot of setups. Jetpack Compose provides Scaffold Composable which can save a lot of time. It’s like a prebuilt template. 
+
+## JetPack Navigation
+
+A set of modern tools and libraries for handling complex navigation cases in Android. Navigation Component has 3 major parts working together:
+
+* Navigation Graph:
+An XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take through your app
+
+* NavHost:
+Hosts each navigation graph item - it swaps out each destination (composable) when users navigate to a new screen
+
+* NavController
+(Central API) Instructs navigation to occur (Navigation.navigate(route)). An object that manages app navigation within a NavHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout your app.
+
+## companion
+Kotlin provides a companion keyword that can be used to create static members for a class definition.
+In other languages like Java and C#, using the static keyword to an individual function or parameter inside a class would make it a class-level variable and you would be able to access that function or parameter without an actual class instance. In Kotlin, this behavior could be achieved using companion objects.
+
+## Coil
+Coil (Coroutine Image Loader) is a Kotlin-first image loading library for Android which uses Kotlin Coroutines behind the hood. It simplifies image loading from the internet by automatically handling the network request, image caching, request cancellation, error handling, memory management, and more.
+
+## Multiple Styles In Text
+
+To set different styles within the same Text composable, you have to use an AnnotatedString, a string that can be annotated with styles of arbitrary annotations.
+https://developer.android.com/jetpack/compose/text#multiple-styles
