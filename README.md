@@ -123,3 +123,23 @@ Keyboard Options can be used to handle options such as to toggle auto-correct, c
 ## ViewModel
 It expose values/data to other classes and composables - single source of truth. The data is integral and away from the lifecycle of Activity and Composables.
 The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
+
+## Room
+The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
+
+## Dependency Injection
+Dependency injection (DI) is a technique widely used in programming and well suited to Android development. By following the principles of DI, you lay the groundwork for good app architecture.
+
+Implementing dependency injection provides you with the following advantages:
+
+* Reusability of code
+* Ease of refactoring
+* Ease of testing
+
+Classes often require references to other classes. For example, a Car class might need a reference to an Engine class. These required classes are called dependencies, and in this example the Car class is dependent on having an instance of the Engine class to run.
+
+There are three ways for a class to get an object it needs:
+
+* The class constructs the dependency it needs. In the example above, Car would create and initialize its own instance of Engine.
+* Grab it from somewhere else. Some Android APIs, such as Context getters and getSystemService(), work this way.
+* Have it supplied as a parameter. The app can provide these dependencies when the class is constructed or pass them in to the functions that need each dependency. 
