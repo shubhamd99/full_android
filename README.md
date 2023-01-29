@@ -35,6 +35,13 @@ Jetpack is a suite of libraries to help developers follow best practices, reduce
 
 Jetpack compose also comes with a pre-configured Material design theme. You can customize this theme to meet your own demands in an easier way. It provides properties like shapes, typography and colors in the MaterialTheme composable.
 
+## Context
+It's the context of current state of the application/object. It lets newly-created objects understand what has been going on. Typically, you call it to get information regarding another part of your program (activity and package/application).
+
+* It allows us to access resources.
+* It allows us to interact with other Android components by sending messages.
+* It gives you information about your app environment.
+
 ## Kotlin functions
 Kotlin functions are first-class, which means they can be stored in variables and data structures, and can be passed as arguments to and returned from other higher-order functions. You can perform any operations on functions that are possible for other non-function values.
 
@@ -108,3 +115,7 @@ Coil (Coroutine Image Loader) is a Kotlin-first image loading library for Androi
 
 To set different styles within the same Text composable, you have to use an AnnotatedString, a string that can be annotated with styles of arbitrary annotations.
 https://developer.android.com/jetpack/compose/text#multiple-styles
+
+## IME Actions
+IME Action directs the keyboard what type of action should be displayed.
+Keyboard Options can be used to handle options such as to toggle auto-correct, capitalization, the keyboard type, and the IME Action as well.
