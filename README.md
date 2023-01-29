@@ -57,6 +57,12 @@ The function max is a higher-order function, as it takes a function value as its
 fun compare(a: String, b: String): Boolean = a.length < b.length
 ```
 
+## Abstract Classes
+abstract class is declared using the abstract keyword in front of class. An abstract class can not instantiated means we can not create object for the abstract class.
+If we declare a member function as abstract then we does not need to annotate with open keyword because these are open by default.
+An abstract member function doesn’t have a body, and it must be implemented in the derived class.
+
+
 ## Dp or dip
 Density-independent Pixels - an abstract unit that is based on the physical density of the screen. These units are relative to a 160 dpi screen, so one dp is one pixel on a 160 dpi screen. The ratio of dp-to-pixel will change with the screen density, but not necessarily in direct proportion. Note: The compiler accepts both "dip" and "dp", though "dp" is more consistent with "sp".
 
@@ -124,6 +130,9 @@ Keyboard Options can be used to handle options such as to toggle auto-correct, c
 It expose values/data to other classes and composables - single source of truth. The data is integral and away from the lifecycle of Activity and Composables.
 The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
 
+## StateFlow
+StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
+
 ## Room
 The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
 
@@ -143,3 +152,48 @@ There are three ways for a class to get an object it needs:
 * The class constructs the dependency it needs. In the example above, Car would create and initialize its own instance of Engine.
 * Grab it from somewhere else. Some Android APIs, such as Context getters and getSystemService(), work this way.
 * Have it supplied as a parameter. The app can provide these dependencies when the class is constructed or pass them in to the functions that need each dependency. 
+
+## Manual Dependency Injection VS Hilt
+Manual DI works fine, but as the app scales, it can be very difficult to manager dependencies.
+
+Hilt is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
+
+Hilt provides a standard way to use DI in your application by providing containers for every Android class in your project and managing their lifecycles automatically. Hilt is built on top of the popular DI library Dagger to benefit from the compile-time correctness, runtime performance, scalability, and Android Studio support that Dagger provides. 
+
+Pros of Hilt:
+
+* Reusability of code
+* Ease of refactoring
+* Ease of testing
+
+## Dagger
+Dagger is a fully static, compile-time dependency injection framework for Java, Kotlin, and Android.
+
+## @AndroidEntryPoint
+Marks an Android component class to be setup for injection with the standard Hilt Dagger Android components. Currently, this supports activities, fragments, views, services, and broadcast receivers.
+
+## @HiltAndroidApp
+Annotation for marking the Application class where the Dagger components should be generated. 
+Usage of this annotation is similar to AndroidEntryPoint with the only difference being that it only works on application classes and additionally triggers Dagger component generation.
+
+## @Singleton
+Once instance that can happen. The Singleton Pattern is a software design pattern that restricts the instantiation of a class to just “one” instance
+
+## DAO
+Data Access Objects are the main classes where you define your database interactions. They can include a variety of query methods. 
+
+## Coroutine
+A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
+On Android, coroutines help to manage long-running tasks that might otherwise block the main thread and cause your app to become unresponsive. 
+
+## suspend function
+Suspend function is a function that could be started, paused, and resume. One of the most important points to remember about the suspend functions is that they are only allowed to be called from a coroutine or another suspend function. 
+
+## Flow
+In coroutines, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value. For example, you can use a flow to receive live updates from a database.
+
+Flows are built on top of coroutines and can provide multiple values. A flow is conceptually a stream of data that can be computed asynchronously. The emitted values must be of the same type. For example, a Flow<Int> is a flow that emits integer values
+
+## Repository
+
+The repository pattern is a design pattern that isolates the data layer from the rest of the app. The data layer refers to the part of your app, separate from the UI, that handles the app's data and business logic, exposing consistent APIs for the rest of your app to access this data.
