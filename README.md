@@ -119,3 +119,7 @@ https://developer.android.com/jetpack/compose/text#multiple-styles
 ## IME Actions
 IME Action directs the keyboard what type of action should be displayed.
 Keyboard Options can be used to handle options such as to toggle auto-correct, capitalization, the keyboard type, and the IME Action as well.
+
+## ViewModel
+It expose values/data to other classes and composables - single source of truth. The data is integral and away from the lifecycle of Activity and Composables.
+The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
