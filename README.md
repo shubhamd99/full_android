@@ -35,6 +35,9 @@ Jetpack is a suite of libraries to help developers follow best practices, reduce
 
 Jetpack compose also comes with a pre-configured Material design theme. You can customize this theme to meet your own demands in an easier way. It provides properties like shapes, typography and colors in the MaterialTheme composable.
 
+## Arch of Data use
+![im_alt](https://i.imgur.com/pbblTIQ.png)
+
 ## Context
 It's the context of current state of the application/object. It lets newly-created objects understand what has been going on. Typically, you call it to get information regarding another part of your program (activity and package/application).
 
