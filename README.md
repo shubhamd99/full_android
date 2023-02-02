@@ -212,3 +212,17 @@ The Retrofit library is a type-safe REST client for Android, Java, and Kotlin, d
 ## GSON
 
 Gson is an open-source Java library to serialize and deserialize Java objects to JSON.
+
+## Webview
+
+The WebView class is an extension of Android's View class that allows you to display web pages as a part of your activity layout. It does not include any features of a fully developed web browser, such as navigation controls or an address bar. All that WebView does, by default, is show a web page.
+
+## Accomanist WebView
+
+A library which provides a Jetpack Compose wrapper around Android's WebView.
+
+To implement this wrapper there are two key APIs which are needed: WebView, which is provides the layout, and rememberWebViewState(url) which provides some remembered state including the URL to display.
+
+* rememberWebViewNavigator - Creates and remembers a WebViewNavigator using the default CoroutineScope or a provided override.
+
+* WebViewNavigator - Allows control over the navigation of a WebView from outside the composable. E.g. for performing a back navigation in response to the user clicking the "up" button in a TopAppBar.
