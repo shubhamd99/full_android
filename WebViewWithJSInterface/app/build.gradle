@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.webviewwithjsinterface'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.webviewwithjsinterface"
         minSdk 29
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -60,4 +60,7 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+    // Webview
+    implementation "com.google.accompanist:accompanist-webview:0.28.0"
 }
