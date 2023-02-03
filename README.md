@@ -147,6 +147,10 @@ StateFlow is a state-holder observable flow that emits the current and new state
 
 produceState launches a coroutine scoped to the Composition that can push values into a returned State. Use it to convert non-Compose state into Compose state, for example bringing external subscription-driven state such as Flow, LiveData, or RxJava into the Composition.
 
+## rememberSaveable
+
+Use rememberSaveable to restore your UI state after an activity or process is recreated. rememberSaveable retains state across recompositions. In addition, rememberSaveable also retains state across activity and process recreation. Example - Persist state on screen rotation.
+
 
 ## Room
 The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
