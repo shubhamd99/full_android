@@ -226,3 +226,29 @@ To implement this wrapper there are two key APIs which are needed: WebView, whic
 * rememberWebViewNavigator - Creates and remembers a WebViewNavigator using the default CoroutineScope or a provided override.
 
 * WebViewNavigator - Allows control over the navigation of a WebView from outside the composable. E.g. for performing a back navigation in response to the user clicking the "up" button in a TopAppBar.
+
+## Gradle
+
+Gradle is an open-source build automation tool flexible enough to build almost any type of software. A build automation tool is used to automate the creation of applications. The building process includes compiling, linking, and packaging the code.
+
+## Maven
+
+Maven is a powerful project management tool that is based on POM (project object model). It is used for projects build, dependency and documentation.
+
+## Plugins DSL (Domain Specific Language)
+
+The plugins DSL provides a convenient way to declare plugin dependencies. It works with the Gradle plugin portal to provide easy access to both core and community plugins. 
+
+```
+plugins {
+    id 'com.jfrog.bintray' version '1.8.5'
+}
+```
+
+## Kapt vs KSP
+
+KAPT (Kotlin Annotation Processing Tool) is a Java-based Annotation Processor, which is tied to the JVM, while KSP is a code processor which depends only on Kotlin and can be more natural to Kotlin developers.
+
+On another note, KAPT needs to have access to Java generated stubs to modify the program input based on annotations. This stage happens after all the symbols in the program (such as types) are completely resolved. This stage takes 30% of the compiler time and can be costly.
+
+Kotlin Symbol Processing (KSP) is an API that you can use to develop lightweight compiler plugins.
