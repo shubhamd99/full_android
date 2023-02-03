@@ -113,6 +113,13 @@ Hosts each navigation graph item - it swaps out each destination (composable) wh
 * NavController
 (Central API) Instructs navigation to occur (Navigation.navigate(route)). An object that manages app navigation within a NavHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout your app.
 
+Note: Incase of navigation with hilt use `hiltViewModel` otherwise it will throw an error `Cannot create an instance of class`
+https://proandroiddev.com/jetpack-compose-adding-a-hilt-viewmodel-to-navigation-28cdc95e28bb
+
+```
+val dashboardViewModel = hiltViewModel<DashboardViewModel>()
+```
+
 ## companion
 Kotlin provides a companion keyword that can be used to create static members for a class definition.
 In other languages like Java and C#, using the static keyword to an individual function or parameter inside a class would make it a class-level variable and you would be able to access that function or parameter without an actual class instance. In Kotlin, this behavior could be achieved using companion objects.
@@ -135,6 +142,11 @@ The ViewModel class is a business logic or screen level state holder. It exposes
 
 ## StateFlow
 StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
+
+## produceState: convert non-Compose state into Compose state
+
+produceState launches a coroutine scoped to the Composition that can push values into a returned State. Use it to convert non-Compose state into Compose state, for example bringing external subscription-driven state such as Flow, LiveData, or RxJava into the Composition.
+
 
 ## Room
 The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
@@ -252,3 +264,13 @@ KAPT (Kotlin Annotation Processing Tool) is a Java-based Annotation Processor, w
 On another note, KAPT needs to have access to Java generated stubs to modify the program input based on annotations. This stage happens after all the symbols in the program (such as types) are completely resolved. This stage takes 30% of the compiler time and can be costly.
 
 Kotlin Symbol Processing (KSP) is an API that you can use to develop lightweight compiler plugins.
+
+## Animatable
+
+Animatable is a value holder that can animate the value as it is changed via animateTo. This is the API backing up the implementation of animate*AsState. It ensures consistent continuation and mutual exclusiveness, meaning that the value change is always continuous and any ongoing animation will be canceled.
+
+## LaunchedEffect (Side-effects in Compose)
+
+To call suspend functions safely from inside a composable, use the LaunchedEffect composable. When LaunchedEffect enters the Composition, it launches a coroutine with the block of code passed as a parameter. The coroutine will be cancelled if LaunchedEffect leaves the composition. 
+
+
