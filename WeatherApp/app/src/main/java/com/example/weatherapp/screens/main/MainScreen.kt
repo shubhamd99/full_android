@@ -19,6 +19,7 @@ import androidx.navigation.NavController
 import com.example.weatherapp.data.DataOrException
 import com.example.weatherapp.model.Weather
 import com.example.weatherapp.model.WeatherItem
+import com.example.weatherapp.navigation.WeatherScreens
 import com.example.weatherapp.utils.Constants.DEGREE_SYMBOL
 import com.example.weatherapp.utils.Constants.IMAGE_BASE_URL
 import com.example.weatherapp.utils.formatDate
@@ -26,10 +27,10 @@ import com.example.weatherapp.utils.formatDecimals
 import com.example.weatherapp.widgets.*
 
 @Composable
-fun MainScreen(navController: NavController, mainViewModel: MainViewModel) {
+fun MainScreen(navController: NavController, mainViewModel: MainViewModel, city: String?) {
     val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)) {
-        value = mainViewModel.getWeatherData("Seattle")
+        value = mainViewModel.getWeatherData(city = city.toString())
     }.value
 
     if (weatherData.loading == true) {
@@ -48,6 +49,9 @@ fun MainScaffold(weather: Weather, navController: NavController) {
                 title = weather.city.name + ",${weather.city.country}",
                 navController = navController,
                 elevation = 5.dp,
+                onAddActionClicked = {
+                    navController.navigate(WeatherScreens.SearchScreen.name)
+                }
             ) {
                 Log.d("Button", "MainScaffold: Button CLicked")
             }

@@ -36,6 +36,7 @@ fun WeatherSplashScreen(
     val scale = remember {
         Animatable(0f)
     }
+    val defaultCity = "San Diego"
 
     LaunchedEffect(
         key1 = true,
@@ -51,7 +52,7 @@ fun WeatherSplashScreen(
                 ),
             )
             delay(1500L)
-            navController.navigate(WeatherScreens.MainScreen.name)
+            navController.navigate(WeatherScreens.MainScreen.name + "/$defaultCity")
         },
     )
 
