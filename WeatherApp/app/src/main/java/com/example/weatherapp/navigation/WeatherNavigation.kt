@@ -15,6 +15,7 @@ import com.example.weatherapp.screens.main.MainScreen
 import com.example.weatherapp.screens.main.MainViewModel
 import com.example.weatherapp.screens.search.SearchScreen
 import com.example.weatherapp.screens.settings.SettingsScreen
+import com.example.weatherapp.screens.settings.SettingsViewModel
 import com.example.weatherapp.screens.splash.WeatherSplashScreen
 
 @ExperimentalComposeUiApi
@@ -51,7 +52,11 @@ fun WeatherNavigation() {
             AboutScreen(navController = navController)
         }
         composable(WeatherScreens.SettingsScreen.name) {
-            SettingsScreen(navController = navController)
+            val settingsViewModel = hiltViewModel<SettingsViewModel>()
+            SettingsScreen(
+                navController = navController,
+                settingsViewModel = settingsViewModel
+            )
         }
         composable(WeatherScreens.FavoriteScreen.name) {
             val favViewModel = hiltViewModel<FavoriteViewModel>()
