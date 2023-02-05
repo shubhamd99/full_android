@@ -5,14 +5,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
@@ -20,8 +18,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.weatherapp.model.Favorite
 import com.example.weatherapp.navigation.WeatherScreens
+import com.example.weatherapp.screens.favorite.FavoriteViewModel
 
 @Composable
 fun WeatherAppBar(
@@ -31,7 +32,8 @@ fun WeatherAppBar(
     elevation: Dp = 0.dp,
     navController: NavController,
     onAddActionClicked: () -> Unit = {},
-    onButtonClicked: () -> Unit
+    favoriteViewModel: FavoriteViewModel = hiltViewModel(),
+    onButtonClicked: () -> Unit,
 ) {
     val showDialog = remember {
         mutableStateOf(false)
@@ -67,16 +69,34 @@ fun WeatherAppBar(
                  } else Box{}
         },
         navigationIcon = {
-                         if (icon != null) {
-                             Icon(
-                                 imageVector = icon,
-                                 contentDescription = null,
-                                 tint = MaterialTheme.colors.onSecondary,
-                                 modifier = Modifier.clickable {
-                                     onButtonClicked.invoke()
-                                 }
-                             )
-                         }
+            if (icon != null) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    tint = MaterialTheme.colors.onSecondary,
+                    modifier = Modifier.clickable {
+                        onButtonClicked.invoke()
+                    }
+                )
+            }
+            if (isMainScreen) {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = "Favorite Icon",
+                    modifier = Modifier
+                        .scale(0.9f)
+                        .clickable {
+                            val cityObject = title.split(",")
+                            favoriteViewModel.insertFavorite(
+                                Favorite(
+                                    city = cityObject[0].trim(),
+                                    country = cityObject[1].trim()
+                                )
+                            )
+                        },
+                    tint = Color.Red.copy(alpha = 0.6f)
+                )
+            }
         },
         backgroundColor = Color.Transparent, 
         elevation = elevation
@@ -88,7 +108,7 @@ fun ShowSettingDropdownMenu(showDialog: MutableState<Boolean>, navController: Na
     var expanded by remember {
         mutableStateOf(true)
     }
-    val items = listOf<String>("About", "Favorite", "Settings")
+    val items = listOf("About", "Favorite", "Settings")
 
     Column(
         modifier = Modifier
@@ -106,7 +126,7 @@ fun ShowSettingDropdownMenu(showDialog: MutableState<Boolean>, navController: Na
                 .width(140.dp)
                 .background(Color.White)
         ) {
-            items.forEachIndexed { index, text ->
+            items.forEachIndexed { _, text ->
                 DropdownMenuItem(onClick = {
                     expanded = false
                     showDialog.value = false
@@ -125,7 +145,7 @@ fun ShowSettingDropdownMenu(showDialog: MutableState<Boolean>, navController: Na
                             navController.navigate(
                                 when(text) {
                                     "About" -> WeatherScreens.AboutScreen.name
-                                    "Favorites" -> WeatherScreens.FavoriteScreen.name
+                                    "Favorite" -> WeatherScreens.FavoriteScreen.name
                                     else -> WeatherScreens.SettingsScreen.name },
                             )
                         },
