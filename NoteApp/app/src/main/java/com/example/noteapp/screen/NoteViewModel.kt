@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NoteViewModel @Inject constructor(private val repository: NoteRepository) : ViewModel() {
-    private val _noteList = MutableStateFlow<List<Note>>(emptyList())
+    private val _noteList = MutableStateFlow<List<Note>>(emptyList()) // Use MutableStateFlow Only when we have flow type in repository
     val noteList = _noteList.asStateFlow()
 
     init {
