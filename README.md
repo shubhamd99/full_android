@@ -88,6 +88,14 @@ A LazyColumn is a vertically scrolling list that only composes and lays out the 
 ## remember 
 Composable functions can use the remember API to store an object in memory. A value computed by remember is stored in the Composition during initial composition, and the stored value is returned during recomposition. remember can be used to store both mutable and immutable objects.
 
+## rememberSaveable
+
+Use rememberSaveable to restore your UI state after an activity or process is recreated. rememberSaveable retains state across recompositions. In addition, rememberSaveable also retains state across activity and process recreation. Example - Persist state on screen rotation.
+
+## rememberSystemUiController
+System UI Controller provides easy-to-use utilities for updating the System UI bar colors within Jetpack Compose.
+To control the system UI in your composables, you need to get a SystemUiController instance. The library provides the rememberSystemUiController() function which returns an instance for the current system (currently only Android).
+
 ## State Hoisting
 You should hoist UI state to the lowest common ancestor between all the composables that read and write it. You should keep state closest to where it is consumed. From the state owner, expose to consumers immutable state and events to modify the state.
 The lowest common ancestor can also be outside of the Composition. For example, when hoisting state in a ViewModel because business logic is involved.
@@ -140,6 +148,9 @@ Keyboard Options can be used to handle options such as to toggle auto-correct, c
 It expose values/data to other classes and composables - single source of truth. The data is integral and away from the lifecycle of Activity and Composables.
 The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
 
+## ViewModelScope
+A ViewModelScope is defined for each ViewModel in your app. Any coroutine launched in this scope is automatically canceled if the ViewModel is cleared. Coroutines are useful here for when you have work that needs to be done only if the ViewModel is active. For example, if you are computing some data for a layout, you should scope the work to the ViewModel so that if the ViewModel is cleared, the work is canceled automatically to avoid consuming resources.
+
 ## StateFlow
 StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
 
@@ -152,10 +163,6 @@ MutableLiveData is used in the ViewModel and then the ViewModel only exposes imm
 ## produceState: convert non-Compose state into Compose state
 
 produceState launches a coroutine scoped to the Composition that can push values into a returned State. Use it to convert non-Compose state into Compose state, for example bringing external subscription-driven state such as Flow, LiveData, or RxJava into the Composition.
-
-## rememberSaveable
-
-Use rememberSaveable to restore your UI state after an activity or process is recreated. rememberSaveable retains state across recompositions. In addition, rememberSaveable also retains state across activity and process recreation. Example - Persist state on screen rotation.
 
 
 ## Room
