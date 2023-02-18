@@ -143,6 +143,12 @@ The ViewModel class is a business logic or screen level state holder. It exposes
 ## StateFlow
 StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
 
+## LiveData
+LiveData is a part of the architecture patterns. It’s basically a data holder that contains primitive/collection types. It’s used for observing changes in the view and updating the view when it is ACTIVE. Thus, LiveData is lifecycle aware. We know that ViewModels are used to communicate the data to the View. Using ViewModels alone can be a tedious and costly operation since we need to make multiple calls each time the data has to alter the View. Plus we need to store the data Model at different places. LiveData is based on the Observer Pattern and makes the communication between the ViewModel and View easy. It observes for data changes and updates the data automatically instead of us doing multiple calls in adding and deleting data references from multiple places (for example SQLite, ArrayList, ViewModel).
+
+## MutableLiveData
+MutableLiveData is used in the ViewModel and then the ViewModel only exposes immutable LiveData objects to the observers. MutableLiveData is just a class that extends the LiveData type class.
+
 ## produceState: convert non-Compose state into Compose state
 
 produceState launches a coroutine scoped to the Composition that can push values into a returned State. Use it to convert non-Compose state into Compose state, for example bringing external subscription-driven state such as Flow, LiveData, or RxJava into the Composition.
