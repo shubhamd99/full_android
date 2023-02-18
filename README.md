@@ -326,3 +326,14 @@ As this is in the form of a contract, both the client and server need to have th
 * REST typically uses JSON and XML formats for data transfer. However, gRPC relies on Protobuf for an exchange of data over the HTTP/2 protocol.
 
 * REST utilizing HTTP 1.1 requires a TCP handshake for each request. Hence, REST APIs with HTTP 1.1 can suffer from latency issues. On the other hand, gRPC relies on HTTP/2 protocol, which uses multiplexed streams. Therefore, several clients can send multiple requests simultaneously without establishing a new TCP connection for each one. Also, the server can send push notifications to clients via the established connection.
+
+## Intent
+
+An intent is a messaging object used to request any action from another app component. Intents facilitate communication between different components in several ways. The intent is used to launch an activity, start the services, broadcast receivers, display a web page, dial a phone call, send messages from one activity to another activity, and so on.
+
+* Explicit intents are communicated between two activities inside the same application.
+* Implicit intent is communicated between two activities of an application.
+
+## Deep Linking
+
+A deep link is a URL that is used to direct users to a specific page or specific activity within the application. We can also pass data to our application with the help of these deep links.
