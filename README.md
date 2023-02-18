@@ -284,3 +284,12 @@ Animatable is a value holder that can animate the value as it is changed via ani
 To call suspend functions safely from inside a composable, use the LaunchedEffect composable. When LaunchedEffect enters the Composition, it launches a coroutine with the block of code passed as a parameter. The coroutine will be cancelled if LaunchedEffect leaves the composition. 
 
 
+## Use HTTP (without security) in Android App
+
+HTTP refers to Hyper Text Transfer Protocol. It is a prescribed syntax to present information or transfer the data over a network. A majority of websites use the HTTP protocol to send information over the internet, including website content and API calls. Hence, HTTP requests and responses play a vital role in the proper working of an android application.
+
+The ‘S’ in HTTPS refers to secure. Hence, HTTPS is HTTP with encryption and verification. HTTPS uses TLS(SSL) to encrypt normal HTTP requests and responses. 
+
+Android does not allow to access HTTP URLs by default. Hence, it displays the error message informing that cleartext HTTP traffic is not permitted. However, Android does not provide any hindrance while accessing HTTPS URLs.  The only problem arises when the site does not support HTTPS.  As cleartext support is disabled by default in Android 9 (API level 28) and above, HTTP cleartext configuration is required to access HTTP sites.
+
+https://www.geeksforgeeks.org/android-cleartext-http-traffic-not-permitted/
