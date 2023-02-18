@@ -67,14 +67,14 @@ fun ReaderLoginScreen(navController: NavController? = null, viewModel: LoginScre
                    navController?.navigate(ReaderScreens.ReaderHomeScreen.name)
                }
            }
-           }
+
             Spacer(modifier = Modifier.height(15.dp))
 
             Row(
                 modifier = Modifier.padding(bottom = 15.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
-               ){
+            ){
                 val text = if (showLoginForm.value) "Sign up" else "Login"
                 Text("New User?")
                 Text(text,
@@ -87,6 +87,7 @@ fun ReaderLoginScreen(navController: NavController? = null, viewModel: LoginScre
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colors.secondaryVariant)
             }
+           }
         }
 
     }
