@@ -300,3 +300,29 @@ The ‘S’ in HTTPS refers to secure. Hence, HTTPS is HTTP with encryption and 
 Android does not allow to access HTTP URLs by default. Hence, it displays the error message informing that cleartext HTTP traffic is not permitted. However, Android does not provide any hindrance while accessing HTTPS URLs.  The only problem arises when the site does not support HTTPS.  As cleartext support is disabled by default in Android 9 (API level 28) and above, HTTP cleartext configuration is required to access HTTP sites.
 
 https://www.geeksforgeeks.org/android-cleartext-http-traffic-not-permitted/
+
+## GRPC
+
+gRPC is a powerful framework for working with Remote Procedure Calls. RPCs allow you to write code as though it will be run on a local computer, even though it may be executed on another computer.
+
+A RPC is a form of Client-Server Communication that uses a function call rather than a usual HTTP call.
+
+It uses IDL (Interface Definition Language) as a form of contract on functions to be called and on the data type.
+
+gRPC is very popular in service to service calls, as often HTTP calls are harder to understand at first glance.
+
+## Protobuf
+
+Protobuf is the most commonly used IDL (Interface Definition Language) for gRPC. It's where you basically store your data and function contracts in the form of a proto file.
+
+As this is in the form of a contract, both the client and server need to have the same proto file. The proto file acts as the intermediary contract for client to call any available functions from the server.
+
+## REST vs GRPC
+
+* REST is a set of guidelines for designing web APIs without enforcing anything. On the other hand, gRPC enforces rules by defining a .proto file that must be adhered to by both client and server for data exchange.
+
+* REST provides a request-response communication model built on the HTTP 1.1 protocol. Therefore, when multiple requests reach the server, it is bound to handle each of them, one at a time. However, gRPC follows a client-response model of communication for designing web APIs that rely on HTTP/2. Hence, gRPC allows streaming communication and serves multiple requests simultaneously. In addition to that, gRPC also supports unary communication similar to REST.
+
+* REST typically uses JSON and XML formats for data transfer. However, gRPC relies on Protobuf for an exchange of data over the HTTP/2 protocol.
+
+* REST utilizing HTTP 1.1 requires a TCP handshake for each request. Hence, REST APIs with HTTP 1.1 can suffer from latency issues. On the other hand, gRPC relies on HTTP/2 protocol, which uses multiplexed streams. Therefore, several clients can send multiple requests simultaneously without establishing a new TCP connection for each one. Also, the server can send push notifications to clients via the established connection.
