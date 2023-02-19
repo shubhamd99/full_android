@@ -151,6 +151,11 @@ The ViewModel class is a business logic or screen level state holder. It exposes
 ## ViewModelScope
 A ViewModelScope is defined for each ViewModel in your app. Any coroutine launched in this scope is automatically canceled if the ViewModel is cleared. Coroutines are useful here for when you have work that needs to be done only if the ViewModel is active. For example, if you are computing some data for a layout, you should scope the work to the ViewModel so that if the ViewModel is cleared, the work is canceled automatically to avoid consuming resources.
 
+## GlobalScope
+A global CoroutineScope not bound to any job. Global scope is used to launch top-level coroutines which are operating on the whole application lifetime and are not cancelled prematurely. Active coroutines launched in GlobalScope do not keep the process alive. They are like daemon threads.
+
+Note: This is a delicate API. It is easy to accidentally create resource or memory leaks when GlobalScope is used. A coroutine launched in GlobalScope is not subject to the principle of structured concurrency, so if it hangs or gets delayed due to a problem (e.g. due to a slow network), it will stay working and consuming resources.
+
 ## StateFlow
 StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
 
@@ -341,6 +346,8 @@ A deep link is a URL that is used to direct users to a specific page or specific
 ## Push Notification
 
 Push notifications are small, pop-up messages sent to a user’s device by a mobile app that appear even when the app isn't open. These notifications are designed to grab attention and can convey reminders, updates, promotions, and more. Push notifications can consist of a title, a message, an image, and a URL. They can also include logos, emojis, and other elements. 
+
+Examples: https://github.com/rawhasan/compose-exercise-notifications/blob/master/app/src/main/java/com/example/notifications/MainActivity.kt
 
 ## SharedPreferences
 SharedPreferences is the common way used for storing key-value pairs in local storage. A SharedPreferences object points to a file (XML) containing key-value pairs and provides simple methods to read and write them.
