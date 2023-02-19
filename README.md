@@ -337,3 +337,23 @@ An intent is a messaging object used to request any action from another app comp
 ## Deep Linking
 
 A deep link is a URL that is used to direct users to a specific page or specific activity within the application. We can also pass data to our application with the help of these deep links.
+
+## Push Notification
+
+Push notifications are small, pop-up messages sent to a user’s device by a mobile app that appear even when the app isn't open. These notifications are designed to grab attention and can convey reminders, updates, promotions, and more. Push notifications can consist of a title, a message, an image, and a URL. They can also include logos, emojis, and other elements. 
+
+## SharedPreferences
+SharedPreferences is the common way used for storing key-value pairs in local storage. A SharedPreferences object points to a file (XML) containing key-value pairs and provides simple methods to read and write them.
+
+### Disadvantages of SharedPreferences
+
+* They are not safe to call on UI thread although as they have asynchronous API that can appear to be safe to call on the UI thread, but which actually does disk I/O operations that might cause issues.
+* It’s not safe from runtime exceptions as they throw parsing errors
+* Cannot signal errors
+* It doesn’t provide Type-safety
+
+## Preferences DataStore (Jetpack DataStore a replacement for SharedPreferences)
+
+Preferences DataStore uses key-value pairs to store smaller datasets, without defining the schema upfront. This might remind you of SharedPreferences, but only in the way it structures your data models. It was built using Kotlin coroutines and Flow to store data asynchronously, consistently, and transactionally.
+
+![img_alt](https://miro.medium.com/v2/resize:fit:720/format:webp/1*kDQKAjnpv6VHYrQcN3ouAQ.png)
