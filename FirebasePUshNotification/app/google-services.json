@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699607557335",
+    "project_id": "jetareader-8c402",
+    "storage_bucket": "jetareader-8c402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699607557335:android:a087b8b5416ab296a77c92",
+        "android_client_info": {
+          "package_name": "com.example.firebasepushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699607557335-tu96lloh3qmoaf9ud36mqhbsh5alhsek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgmFMY0lN6HBuKjs22OIh1EPoPTTZGvW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699607557335-tu96lloh3qmoaf9ud36mqhbsh5alhsek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
