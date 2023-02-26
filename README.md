@@ -384,3 +384,13 @@ SharedPreferences is the common way used for storing key-value pairs in local st
 Preferences DataStore uses key-value pairs to store smaller datasets, without defining the schema upfront. This might remind you of SharedPreferences, but only in the way it structures your data models. It was built using Kotlin coroutines and Flow to store data asynchronously, consistently, and transactionally.
 
 ![img_alt](https://miro.medium.com/v2/resize:fit:720/format:webp/1*kDQKAjnpv6VHYrQcN3ouAQ.png)
+
+## DMAIC process
+
+Use DMAIC (DEFINE MEASURE ANALYZE IMPROVE CONTROL) methodology to help you solve performance issues consistently
+
+* Define the problem, improvement activity, opportunity for improvement, the project goals, and customer (internal and external) requirements.
+* Measure process performance.
+* Analyze the process to determine root causes of variation, poor performance (defects).
+* Improve process performance by addressing and eliminating the root causes.
+* Control the improved process and future process performance.
