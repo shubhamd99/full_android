@@ -45,6 +45,17 @@ It's the context of current state of the application/object. It lets newly-creat
 * It allows us to interact with other Android components by sending messages.
 * It gives you information about your app environment.
 
+## Activity
+An activity is one screen of an app. In that way the activity is very similar to a window in the Windows operating system. 
+Examples: Login screen, sign up screen, and home screen.
+An activity in Android is a specific combination of XML files and JAVA files. It is basically a container that contains the design as well as coding stuff.
+
+Unlike programming paradigms in which apps are launched with a main() method, the Android system initiates code in an Activity instance by invoking specific callback methods that correspond to specific stages of its lifecycle.
+
+## App Bundle
+An Android App Bundle is a publishing format that includes all your app’s compiled code and resources, and defers APK generation and signing to Google Play.
+Google Play uses your app bundle to generate and serve optimized APKs for each device configuration, so only the code and resources that are needed for a specific device are downloaded to run your app. You no longer have to build, sign, and manage multiple APKs to optimize support for different devices, and users get smaller, more-optimized downloads.
+
 ## Kotlin functions
 Kotlin functions are first-class, which means they can be stored in variables and data structures, and can be passed as arguments to and returned from other higher-order functions. You can perform any operations on functions that are possible for other non-function values.
 
@@ -169,6 +180,9 @@ MutableLiveData is used in the ViewModel and then the ViewModel only exposes imm
 
 produceState launches a coroutine scoped to the Composition that can push values into a returned State. Use it to convert non-Compose state into Compose state, for example bringing external subscription-driven state such as Flow, LiveData, or RxJava into the Composition.
 
+## Proguard
+Proguard is a great tool for creating a production-ready application in Android. It assists us in reducing code and making apps faster.
+To make your app as small as possible, you should enable shrinking in your release build to remove unused code and resources. When enabling shrinking, you also benefit from obfuscation, which shortens the names of your app’s classes and members, and optimization, which applies more aggressive strategies to further reduce the size of your app. 
 
 ## Room
 The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
