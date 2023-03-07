@@ -19,7 +19,7 @@ class TrackViewModel @Inject constructor(trackRepository: TrackRepository) : Vie
     init {
         viewModelScope.launch(Dispatchers.IO) {
             trackRepository.getTracks().let {
-                _trackList.postValue(it.sortedBy { it.index })
+                _trackList.postValue( it.sortedBy { it.index } )
             }
         }
     }

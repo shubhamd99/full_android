@@ -8,5 +8,5 @@
 
 ### Firestore Database
 
-![img_alt](https://i.imgur.com/68DRrIF.png)
+![img_alt](https://i.imgur.com/KYfKNdV.png)
 

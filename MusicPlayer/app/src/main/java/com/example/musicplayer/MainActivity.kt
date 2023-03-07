@@ -9,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: TrackViewModel by viewModels()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observeViewModel()
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
 
     private fun observeViewModel() {
         viewModel.trackList.observe(this, { trackList ->
-
+            println(trackList)
         })
     }
 }
