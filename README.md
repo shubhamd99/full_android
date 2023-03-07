@@ -394,3 +394,21 @@ Use DMAIC (DEFINE MEASURE ANALYZE IMPROVE CONTROL) methodology to help you solve
 * Analyze the process to determine root causes of variation, poor performance (defects).
 * Improve process performance by addressing and eliminating the root causes.
 * Control the improved process and future process performance.
+
+## Material Theme
+
+Jetpack Compose offers an implementation of Material Design, a comprehensive design system for creating digital interfaces. The Material Design components (buttons, cards, switches, and so on) are built on top of Material Theming, which is a systematic way to customize Material Design to better reflect your product’s brand. A Material Theme contains color, typography and shape attributes. When you customize these attributes, your changes are automatically reflected in the components you use to build your app.
+
+Jetpack Compose implements these concepts with the MaterialTheme composable:
+
+```kotlin
+MaterialTheme(
+    colors = // ...
+    typography = // ...
+    shapes = // ...
+) {
+    // app content
+}
+```
+
+Material 3 is the latest version of Google’s open-source design system.
