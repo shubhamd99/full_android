@@ -82,6 +82,9 @@ abstract class is declared using the abstract keyword in front of class. An abst
 If we declare a member function as abstract then we does not need to annotate with open keyword because these are open by default.
 An abstract member function doesn’t have a body, and it must be implemented in the derived class.
 
+## Interface
+Interfaces in Kotlin can contain declarations of abstract methods, as well as method implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have properties, but these need to be abstract or provide accessor implementations.
+
 
 ## Dp or dip
 Density-independent Pixels - an abstract unit that is based on the physical density of the screen. These units are relative to a 160 dpi screen, so one dp is one pixel on a 160 dpi screen. The ratio of dp-to-pixel will change with the screen density, but not necessarily in direct proportion. Note: The compiler accepts both "dip" and "dp", though "dp" is more consistent with "sp".
@@ -176,11 +179,14 @@ Note: This is a delicate API. It is easy to accidentally create resource or memo
 ## StateFlow
 StateFlow is a state-holder observable flow that emits the current and new state updates to its collectors. The current state value can also be read through its `value` property.
 
-## LiveData
+## Live Data
 LiveData is a part of the architecture patterns. It’s basically a data holder that contains primitive/collection types. It’s used for observing changes in the view and updating the view when it is ACTIVE. Thus, LiveData is lifecycle aware. We know that ViewModels are used to communicate the data to the View. Using ViewModels alone can be a tedious and costly operation since we need to make multiple calls each time the data has to alter the View. Plus we need to store the data Model at different places. LiveData is based on the Observer Pattern and makes the communication between the ViewModel and View easy. It observes for data changes and updates the data automatically instead of us doing multiple calls in adding and deleting data references from multiple places (for example SQLite, ArrayList, ViewModel).
 
 ## MutableLiveData
 MutableLiveData is used in the ViewModel and then the ViewModel only exposes immutable LiveData objects to the observers. MutableLiveData is just a class that extends the LiveData type class.
+
+## Compose Runtime
+Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target.
 
 ## produceState: convert non-Compose state into Compose state
 
