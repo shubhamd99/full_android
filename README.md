@@ -521,3 +521,11 @@ You usually add a service’s certificate or public key at development time. In 
 The Google code scanner API provides a complete solution for scanning codes without requiring your app to request camera permission, while preserving user privacy. This is accomplished by delegating the task of scanning the code to Google Play services and returning only the scan results to your app. All image processing occurs on the device and Google doesn't store the results or image data. The API supports the same code formats as the ML Kit Barcode Scanning API and returns the same Barcode object.
 
 This API is ideal for apps that simply need to scan a code and don’t require a custom UI or camera experience. The implementation resides entirely within Google Play services, so there is no significant impact to the size of your app. For more complex use cases that require a custom UI, use the ML Kit Barcode Scanning API directly.
+
+## callbackFlow
+
+callbackFlow is designed to transform callback-based types to stream-based types
+
+### Await Close
+
+Suspends the current coroutine until the channel is either closed or cancelled and invokes the given block before resuming the coroutine.
