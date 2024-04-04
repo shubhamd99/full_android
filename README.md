@@ -529,3 +529,19 @@ callbackFlow is designed to transform callback-based types to stream-based types
 ### Await Close
 
 Suspends the current coroutine until the channel is either closed or cancelled and invokes the given block before resuming the coroutine.
+
+## Glance Widget
+
+Glance provides a modern approach to build app widgets using Compose, but is restricted by the limitations of AppWidgets and RemoteViews. Therefore, Glance uses different composables from the Jetpack Compose UI. The provideGlance method is used to load data in an app widget created with Glance.
+
+### AppWidgetProviderInfo
+
+AppWidgetProviderInfo is an object in Android that defines the essential qualities of a widget. It can be defined in an XML resource file.
+
+### GlanceAppWidgetReceiver
+
+GlanceAppWidgetReceiver is a BroadcastReceiver class that helps observe the lifecycle of an app widget. It wires the receiver and the GlanceAppWidget instance, manages events, and refreshes its content when necessary. For example, when you drag and drop an app widget for the first time, onEnabled() will be called.
+
+### Glance ActionCallback
+
+Glance ActionCallback is a callback that performs an action when notified for a specific compose or view. It is used to handle widget actions. ActionCallback is executed in response to user action, before the content is updated.
