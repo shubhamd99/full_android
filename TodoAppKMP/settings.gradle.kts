@@ -1,4 +1,4 @@
-rootProject.name = "ToDoKMP"
+rootProject.name = "TodoAppKMP"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

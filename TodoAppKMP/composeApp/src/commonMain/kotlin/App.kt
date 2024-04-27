@@ -12,8 +12,8 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import todokmp.composeapp.generated.resources.Res
-import todokmp.composeapp.generated.resources.compose_multiplatform
+import todoappkmp.composeapp.generated.resources.Res
+import todoappkmp.composeapp.generated.resources.compose_multiplatform
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
