@@ -92,6 +92,30 @@ abstract class is declared using the abstract keyword in front of class. An abst
 If we declare a member function as abstract then we does not need to annotate with open keyword because these are open by default.
 An abstract member function doesn’t have a body, and it must be implemented in the derived class.
 
+## Data Classes
+
+A data class in Kotlin is a class that is designed to hold data. It is a special type of class that provides a number of features that make it easier to work with data.
+
+## Sealed Classes
+
+A sealed class in Kotlin is a class that can only be subclassed within the same file where it's declared. It is used to define a closed set of subclasses. This means that no new subclasses can be created outside of the file where the sealed class is defined
+
+## Companion Objects
+
+A companion object is a special type of object declaration that is associated with a class rather than an instance of the class. It is declared using the companion keyword inside a class declaration. Companion objects are similar to static members in Java, but they are more powerful and flexible
+
+```kotlin
+class MyClass {
+    companion object {
+        private val instance = MyClass()
+
+        fun getInstance(): MyClass {
+            return instance
+        }
+    }
+}
+```
+
 ## Interface
 
 Interfaces in Kotlin can contain declarations of abstract methods, as well as method implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have properties, but these need to be abstract or provide accessor implementations.
@@ -112,6 +136,10 @@ Jetpack Compose is built around composable functions. These functions let you de
 
 In Jetpack Compose we can see the preview of our code in Android studio. It allows us to see the output without running our app.
 
+## Modifier
+
+A modifier in Kotlin Compose is a way to change the appearance or behavior of a composable. Modifiers can be used to set the size, padding, background color, and other properties of a composable.
+
 ## Surface
 
 Surface is the equivalent of CardView in view system.
@@ -124,6 +152,14 @@ A LazyColumn is a vertically scrolling list that only composes and lays out the 
 ## remember
 
 Composable functions can use the remember API to store an object in memory. A value computed by remember is stored in the Composition during initial composition, and the stored value is returned during recomposition. remember can be used to store both mutable and immutable objects.
+
+## mutableStateOf
+
+Unlike remember, mutableStateOf does not automatically cache the value across recompositions. Compose does not observe changes to this object by default, so no recomposition occurs unless explicitly triggered. Use When you need a mutable state variable but don’t necessarily require it to persist across recompositions. Useful for scenarios where you only want to observe changes without caching the value.
+
+## derivedStateOf
+
+Use derivedStateOf when your state or key changes frequently, and you want to update your UI selectively. It allows you to create a derived state based on other states or keys. Recomposition occurs only when the derived state changes, optimizing performance.
 
 ## rememberSaveable
 
@@ -166,6 +202,10 @@ https://proandroiddev.com/jetpack-compose-adding-a-hilt-viewmodel-to-navigation-
 ```
 val dashboardViewModel = hiltViewModel<DashboardViewModel>()
 ```
+
+### Other libraries
+
+- https://voyager.adriel.cafe/ (Voyager) - A multiplatform navigation library built for, and seamlessly integrated with, Jetpack Compose.
 
 ## companion
 
@@ -278,6 +318,36 @@ Usage of this annotation is similar to AndroidEntryPoint with the only differenc
 ## @Singleton
 
 Once instance that can happen. The Singleton Pattern is a software design pattern that restricts the instantiation of a class to just “one” instance
+
+## Factory pattern
+
+The factory pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created.
+
+```kotlin
+// The superclass
+abstract class VehicleFactory {
+    abstract fun createVehicle(): Vehicle
+}
+
+// Subclasses
+class CarFactory : VehicleFactory() {
+    override fun createVehicle(): Vehicle {
+        return Car()
+    }
+}
+
+class TruckFactory : VehicleFactory() {
+    override fun createVehicle(): Vehicle {
+        return Truck()
+    }
+}
+
+// Usage
+val vehicleFactory: VehicleFactory = CarFactory()
+val vehicle: Vehicle = vehicleFactory.createVehicle()
+
+// The vehicle variable will now contain a Car object.
+```
 
 ## DAO
 
@@ -460,6 +530,8 @@ MaterialTheme(
 
 Material 3 is the latest version of Google’s open-source design system.
 
+Builder Tool - https://material-foundation.github.io/material-theme-builder/
+
 ## MVC - Model-View-Controller
 
 This is the standard pattern that most applications use to separate the model from the view. In this format, the controller identifies the data that matches the model.
@@ -545,3 +617,45 @@ GlanceAppWidgetReceiver is a BroadcastReceiver class that helps observe the life
 ### Glance ActionCallback
 
 Glance ActionCallback is a callback that performs an action when notified for a specific compose or view. It is used to handle widget actions. ActionCallback is executed in response to user action, before the content is updated.
+
+## Kotlin Multiplatform
+
+Kotlin Multi Platform Wizard - https://kmp.jetbrains.com/
+
+Kotlin Multiplatform (KMP) is a software development kit (SDK) that allows developers to share code across different platforms. It's an open-source technology from JetBrains that lets developers create applications for Android, iOS, desktop, web, and other platforms. KMP allows developers to reuse code across platforms while maintaining the benefits of native programming. For example, developers can create cross-platform mobile applications that share code between Android and iOS project
+
+KMP supports the following platforms: Android, iOS, Desktop, Web, and Server-side.
+
+Google is experimenting with KMP, focusing on sharing business logic between Android and iOS. As part of this work, Google is converting some Jetpack libraries to multiplatform, but these libraries don't have Jetpack's usual stability guarantees for non-Android targets.
+
+### Compose Multiplatform
+
+Compose Multiplatform is a declarative framework for sharing user interfaces (UIs) across multiple platforms, including iOS, Android, desktop, and web. It's based on Kotlin and Jetpack Compos.
+
+Compose Multiplatform allows you to:
+
+- Build your UI once and use it on all platforms
+- Use the same APIs from Jetpack Compose to build UIs for all platforms
+- Use a variety of production-ready Kotlin libraries and frameworks
+- Easily access the full capabilities of every platform
+- Build your UIs with customizable widgets
+
+* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
+  It contains several subfolders:
+
+  - `commonMain` is for code that’s common for all targets.
+  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
+    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
+    `iosMain` would be the right folder for such calls.
+
+* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
+  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+
+#### Koin
+
+Koin is the Kotlin Multiplatform (KMP) integration framework. You can write code once and deploy it on multiple platforms, with KMP as the main cross-platform technology, and Koin as the Dependency Injection framework.
+
+#### Version catalogs - libs.version.toml
+
+Gradle version catalogs enable you to add and maintain dependencies and plugins in a scalable way. Using Gradle version catalogs makes managing dependencies and plugins easier when you have multiple modules. Instead of hardcoding dependency names and versions in individual build files and updating each entry whenever you need to upgrade a dependency, you can create a central version catalog of dependencies that various modules can reference in a type-safe way with Android Studio assistance.
+Start by creating a version catalog file. In your root project's gradle folder, create a file called libs.versions.toml.
