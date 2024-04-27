@@ -659,3 +659,7 @@ Koin is the Kotlin Multiplatform (KMP) integration framework. You can write code
 
 Gradle version catalogs enable you to add and maintain dependencies and plugins in a scalable way. Using Gradle version catalogs makes managing dependencies and plugins easier when you have multiple modules. Instead of hardcoding dependency names and versions in individual build files and updating each entry whenever you need to upgrade a dependency, you can create a central version catalog of dependencies that various modules can reference in a type-safe way with Android Studio assistance.
 Start by creating a version catalog file. In your root project's gradle folder, create a file called libs.versions.toml.
+
+## AAR (Android Library)
+
+An Android Archive (AAR) file is a package file format that contains the compiled output of an Android library project, including resources, compiled code, and an Android manifest. AAR files can be used as a dependency for an Android app module. They can contain: Android resources, A manifest file, Shared resources like layouts and drawables, Kotlin or Java classes and methods, and C/C++ libraries for use by the app module's C/C++ code.
