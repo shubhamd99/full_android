@@ -12,6 +12,10 @@ An Android Archive (AAR) file is a package file format that contains the compile
 
 ![img_url](https://i.imgur.com/t4eCc5O.png)
 
+### Write any code inside the library
+
+![img_url](https://i.imgur.com/Nk6ahmD.png)
+
 ### Import the method from Lib and use it
 
 ![img_url](https://i.imgur.com/tnWesmZ.png)
