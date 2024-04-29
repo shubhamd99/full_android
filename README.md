@@ -145,6 +145,14 @@ A modifier in Kotlin Compose is a way to change the appearance or behavior of a 
 Surface is the equivalent of CardView in view system.
 Surface is a Box with a Modifier.surface() and material colors and elevation, it checks elevation of ancestors to be always on top of them, and only overload below blocking touch propagation behind the surface with pointerInput(Unit) {}.
 
+## Column
+
+Column is a fundamental layout component used to vertically arrange composables.
+
+## Box
+
+Box is a versatile layout component that allows you to layer and position UI elements on top of each other. The Box stacks its child composables, allowing you to overlay them. It’s useful when you want to create complex layouts by combining multiple elements.
+
 ## LazyColumn
 
 A LazyColumn is a vertically scrolling list that only composes and lays out the currently visible items. It’s similar to a Recyclerview in the classic Android View system.
@@ -663,3 +671,17 @@ Start by creating a version catalog file. In your root project's gradle folder, 
 ## AAR (Android Library)
 
 An Android Archive (AAR) file is a package file format that contains the compiled output of an Android library project, including resources, compiled code, and an Android manifest. AAR files can be used as a dependency for an Android app module. They can contain: Android resources, A manifest file, Shared resources like layouts and drawables, Kotlin or Java classes and methods, and C/C++ libraries for use by the app module's C/C++ code.
+
+## Animations
+
+- `tween`: a tween animation is a fundamental form of animation where an object smoothly transitions from one state to another over a specified duration. The term “tween” stands for the concept of transitioning between two values.
+  In this example, the alpha property smoothly transitions between 1.0 (fully opaque) and 0.5 (semi-transparent) based on the enabled state. The animation duration is 300 milliseconds, and the easing curve is set to FastOutSlowInEasing.
+
+```kotlin
+val alpha: Float by animateFloatAsState(
+    targetValue = if (enabled) 1f else 0.5f,
+    animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing)
+)
+```
+
+- `animateDpAsState`: function is a convenient way to create animated properties for composables. It returns a State<Dp> object, which continuously updates its value during the animation until the animation completes. Note that you cannot stop or cancel the animation at runtime using animateDpAsState unless you remove the composable from the tree.
