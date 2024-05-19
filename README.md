@@ -428,6 +428,43 @@ plugins {
 }
 ```
 
+## libs.versions.toml file
+
+The libs.versions.toml file is a configuration file used by the Gradle Version Catalog feature to manage dependencies in Android projects. It allows you to define and version all of your project's dependencies in a single, central location.
+The file is typically located in the root directory of your Android project, and it uses the TOML format to define dependencies.
+Structure of the libs.versions.toml file:
+
+The libs.versions.toml file is divided into three main sections:
+
+[versions]: This section defines the versions of all the libraries and plugins used in your project.
+[libraries]: This section defines the libraries used in your project.
+[plugins]: This section defines the plugins used in your project.
+
+## Difference between libraries and plugins in libs.versions.toml file
+
+Libraries:
+
+- Provide pre-built code that can be reused in your project.
+- Are listed under the [libraries] table in the libs.versions.toml file.
+- Have a module key that specifies the Gradle module path to the library.
+- Can have optional versionRef and transitive keys.
+
+Plugins:
+
+- Extend the Android Gradle Plugin (AGP) to customize the build process.
+- Are listed under the [plugins] table in the libs.versions.toml file.
+- Have an id key that specifies the plugin ID.
+- Have a version.ref key that references the version of the plugin in the [versions] table.
+
+```toml
+toml
+[libraries]
+androidx-core = { module = "androidx.core:core-ktx", versionRef = "androidxCoreVersion" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePluginVersion" }
+```
+
 ## Kapt vs KSP
 
 KAPT (Kotlin Annotation Processing Tool) is a Java-based Annotation Processor, which is tied to the JVM, while KSP is a code processor which depends only on Kotlin and can be more natural to Kotlin developers.
