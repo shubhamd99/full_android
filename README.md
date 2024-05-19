@@ -2,6 +2,10 @@
 
 ![img_alt](https://i.imgur.com/ai9Kpdi.png)
 
+## Gemini in Android Studio
+
+![img_url](https://i.imgur.com/ZahxJC6.png)
+
 ## Declarative vs Imperative UI in Android
 
 Every application has a UI framework behind it. These frameworks play a huge part in how the applications are created and their performance as well. They also have different ways of operation but can be summarized into two: declarative and imperative.
