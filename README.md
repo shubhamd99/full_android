@@ -388,6 +388,13 @@ The repository pattern is a design pattern that isolates the data layer from the
 
 HTTP is the way modern applications network. It’s how we exchange data & media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.
 
+OkHttp is an HTTP client that’s efficient by default:
+
+- HTTP/2 support allows all requests to the same host to share a socket.
+- Connection pooling reduces request latency (if HTTP/2 isn’t available).
+- Transparent GZIP shrinks download sizes.
+- Response caching avoids the network completely for repeat requests.
+
 ## Retrofit
 
 The Retrofit library is a type-safe REST client for Android, Java, and Kotlin, developed by Square. With the help of the Retrofit library, we can have access to a powerful framework that helps us in authenticating and interacting with APIs and sending network requests with OkHttp. With the help of this library, downloading JSON or XML data from a web API becomes easy. In a Retrofit library, once the data is downloaded, it is parsed into a Plain Old Java Object (POJO) which must be defined for each “resource” in the response. Retrofit is an easy and fast library to retrieve and upload data via a REST-based web service.
