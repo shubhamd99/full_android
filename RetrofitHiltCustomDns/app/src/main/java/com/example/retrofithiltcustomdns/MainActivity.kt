@@ -38,8 +38,8 @@ fun MyScreen() {
     val users = mainViewModel.users.collectAsState()
     val posts = mainViewModel.posts.collectAsState()
 
-    Log.e("MainActivity onCreate: users", users.value.toString())
-    Log.e("MainActivity onCreate: posts", posts.value.toString())
+    Log.e("MainActivity onCreate: users", users.value.size.toString())
+    Log.e("MainActivity onCreate: posts", posts.value.size.toString())
 }
 
 @Preview(showBackground = true)

@@ -82,6 +82,7 @@ dependencies {
 
     // Retrofit
     implementation(libs.okhttp)
+    implementation(libs.okhttp.dnsoverhttps)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
 
