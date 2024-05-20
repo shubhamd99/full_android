@@ -169,6 +169,10 @@ Composable functions can use the remember API to store an object in memory. A va
 
 Unlike remember, mutableStateOf does not automatically cache the value across recompositions. Compose does not observe changes to this object by default, so no recomposition occurs unless explicitly triggered. Use When you need a mutable state variable but don’t necessarily require it to persist across recompositions. Useful for scenarios where you only want to observe changes without caching the value.
 
+## MutableStateFlow
+
+MutableStateFlow is a type of Flow in Kotlin that represents a mutable value. It can be used to represent the state of a view and update it based on user input or other events
+
 ## derivedStateOf
 
 Use derivedStateOf when your state or key changes frequently, and you want to update your UI selectively. It allows you to create a derived state based on other states or keys. Recomposition occurs only when the derived state changes, optimizing performance.
