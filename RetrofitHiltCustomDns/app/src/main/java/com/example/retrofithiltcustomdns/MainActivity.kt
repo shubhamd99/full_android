@@ -5,50 +5,47 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.retrofithiltcustomdns.api.PostAPI
-import com.example.retrofithiltcustomdns.api.UserAPI
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.retrofithiltcustomdns.ui.theme.RetrofitHiltCustomDnsTheme
+import com.example.retrofithiltcustomdns.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var postAPI: PostAPI
-
-    @Inject
-    lateinit var userAPI: UserAPI
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        // TODO: Remove Debug Code
-        GlobalScope.launch {
-            val postRes = postAPI.getPosts("sample-header")
-            val userRes = userAPI.getUsers()
-
-            Log.d("MainActivity postRes:", "onCreate: ${postRes.body().toString()}")
-            Log.d("MainActivity userRes:", "onCreate: ${userRes.body().toString()}")
-        }
-
         setContent {
             RetrofitHiltCustomDnsTheme {
-
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    MyScreen()
+                }
             }
         }
     }
+}
+
+@Composable
+fun MyScreen() {
+    val mainViewModel: MainViewModel = viewModel()
+    val users = mainViewModel.users.collectAsState()
+    val posts = mainViewModel.posts.collectAsState()
+
+    Log.e("MainActivity onCreate: users", users.value.toString())
+    Log.e("MainActivity onCreate: posts", posts.value.toString())
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     RetrofitHiltCustomDnsTheme {
-
+        MyScreen()
     }
 }
