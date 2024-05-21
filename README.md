@@ -737,3 +737,8 @@ val alpha: Float by animateFloatAsState(
 ```
 
 - `animateDpAsState`: function is a convenient way to create animated properties for composables. It returns a State<Dp> object, which continuously updates its value during the animation until the animation completes. Note that you cannot stop or cancel the animation at runtime using animateDpAsState unless you remove the composable from the tree.
+
+## DNS over HTTPS
+
+DNS over HTTPS (DoH) is a protocol that encrypts DNS traffic by passing DNS queries through an HTTPS encrypted session. DoH can help improve online security and privacy and protect DNS queries from attacks.
+Introduced in 2018, DoH works similarly to DNS but uses HTTPS sessions to keep the requests secure and minimize the visibility of the information exchanged during queries.
