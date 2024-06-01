@@ -219,10 +219,6 @@ https://proandroiddev.com/jetpack-compose-adding-a-hilt-viewmodel-to-navigation-
 val dashboardViewModel = hiltViewModel<DashboardViewModel>()
 ```
 
-### Other libraries
-
-- https://voyager.adriel.cafe/ (Voyager) - A multiplatform navigation library built for, and seamlessly integrated with, Jetpack Compose.
-
 ## companion
 
 Kotlin provides a companion keyword that can be used to create static members for a class definition.
@@ -714,6 +710,52 @@ Compose Multiplatform allows you to:
 #### Koin
 
 Koin is the Kotlin Multiplatform (KMP) integration framework. You can write code once and deploy it on multiple platforms, with KMP as the main cross-platform technology, and Koin as the Dependency Injection framework.
+
+#### ktor
+
+The ContentNegotiation plugin serves two primary purposes:
+
+- Negotiating media types between the client and server. For this, it uses the Accept and Content-Type headers.
+
+- Serializing/deserializing the content in a specific format. Ktor supports the following formats out-of-the-box: JSON, XML, CBOR, and ProtoBuf.
+
+#### voyager
+
+A multiplatform navigation library built for, and seamlessly integrated with, Jetpack Compose.
+
+```kotlin
+class HomeScreenModel : ScreenModel {
+    // ...
+}
+
+class HomeScreen : Screen {
+
+    @Composable
+    override fun Content() {
+        val screenModel = rememberScreenModel { HomeScreenModel() }
+        // ...
+    }
+}
+
+class SingleActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            Navigator(HomeScreen())
+        }
+    }
+}
+```
+
+#### multiplatform settings
+
+This is a Kotlin library for Multiplatform apps, so that common code can persist key-value data. Settings in apps to store single values outside a database. The Android implementation is SharedPreferencesSettings, which wraps SharedPreferences. On iOS, macOS, tvOS, or watchOS, NSUserDefaultsSettings wraps NSUserDefaults.
+
+#### stately
+
+Stately is a collection of structures and utilities designed to facilitate Kotlin/Native and multiplatform concurrency. As of today, it is a set of expect/actual definitions that most apps will wind up needing, and a set of frozen, sharable collection classes that allow you to maintain mutable collections across threads.
 
 #### Version catalogs - libs.version.toml
 
